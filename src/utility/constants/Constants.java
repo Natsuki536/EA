@@ -35,6 +35,7 @@ public interface Constants
     int ZERO = 0;
     double ZERO_DOUBLE = 0d;
 
+    //TODO: Put MAX in args!
     //constants for believable data
     int MAX_HEIGHT = 44;
     int MIN_HEIGHT = 0;
@@ -42,8 +43,8 @@ public interface Constants
     Double MAX_TRUNK_CIRCUMFERENCE = 800d;
     Double MIN_TRUNK_CIRCUMFERENCE = 0.0;
     Double CORRECTION_FOR_TRUNK_CIRCUMFERENCE = 50d;
-    int MAX_TREE_AGE = 1000;
-    int MIN_TREE_AGE = 0;
+    int MAX_STANDINGTIME = 1000;
+    int MIN_STANDINGTIME = 0;
     Double MAX_TREETOP_DIAMETER = 25d;
     Double MIN_TREETOP_DIAMETER = 0.0;
     Double CORRECTION_FOR_TREETOP_DIAMETER = 5d;
@@ -92,4 +93,7 @@ public interface Constants
     int NEGATIVE_ONE = -1;
     int HEIGHT_INDEX_CORRECTION = -6;
     int CIRCUMFERENCE_INDEX_CORRECTION = -7;
+
+    //Constants for Main Controller
+    int MAX_NUMBER_OF_ARGS = 4;
 }

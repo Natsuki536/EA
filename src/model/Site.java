@@ -3,7 +3,7 @@ package model;
 /**
  * <h1>Site</h1>
  * <p>
- *      This class represents a site where a tree can be located. This site consist of a neighbourhood and a location being for example a
+ *      This class represents a site where a tree can be located. This site consist of a neighbourhood and a vicinity being for example a
  *      street.
  * </p>
  *
@@ -14,13 +14,13 @@ package model;
 public class Site
 {
     String neighbourhood;
-    String location;
+    String vicinity;
 
     //Constructor
-    public Site (String location, String neighbourhood)
+    public Site (String vicinity, String neighbourhood)
     {
         {
-            this.location = location;
+            this.vicinity = vicinity;
             this.neighbourhood = neighbourhood;
         }
     }
@@ -32,8 +32,8 @@ public class Site
     }
 
 
-    public String getLocation ()
+    public String getVicinity ()
     {
-        return location;
+        return vicinity;
     }
 }

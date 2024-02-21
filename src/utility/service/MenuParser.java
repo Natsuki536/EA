@@ -2,8 +2,8 @@ package utility.service;
 
 
 import control.GroupingAndSortingController;
-import utility.ConsoleColor;
-import utility.MyIO;
+import view.ConsoleColor;
+import view.MyIO;
 import utility.constants.Announcements;
 import utility.constants.Constants;
 import utility.constants.MenuConstants;
@@ -53,6 +53,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
         {
             //get user's choice
             String choice = scanner.nextLine();
+
             try
             {
                 //display answers based on user's choice

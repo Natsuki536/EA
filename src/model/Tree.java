@@ -3,7 +3,7 @@ package model;
 /**
  * <h1>Tree</h1>
  * <p>
- *      This class is used for representing a tree with its attributes being an id the tree has, a site (neighbourhood and location)
+ *      This class is used for representing a tree with its attributes being an id the tree has, a site (neighbourhood and vicinity)
  *      where the tree is located, botanic (tree genus and species in German and Latin), time data (being year of planting and standing time)
  *      and metric data (being height, trunk circumference, treetop diameter).
  * </p>

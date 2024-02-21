@@ -2,13 +2,13 @@ package control;
 
 
 import model.Tree;
-import utility.ConsoleColor;
-import utility.MyIO;
+import view.ConsoleColor;
+import view.MyIO;
 import utility.constants.Announcements;
 import utility.constants.Constants;
 import utility.service.CSVParser;
 import utility.service.MenuParser;
-import utility.service.Pair;
+import utility.ADT.Pair;
 import utility.service.Stopwatch;
 
 import java.io.FileNotFoundException;
@@ -102,11 +102,11 @@ public class IOController implements Constants, Announcements
      * @param treeArrayList ArrayList of trees
      * @return ArrayList<Trees> return adjusted ArrayList
      * */
-    public static ArrayList<Tree> deleteInvalidTrees (ArrayList<Tree> treeArrayList)
+    public static ArrayList<Tree> deleteInvalidTrees (ArrayList<Tree> treeArrayList, String[] arguments)
     {
         Stopwatch stopwatch = new Stopwatch();
         MyIO.printLine(MyIO.formatString(ANNOUNCEMENT_DELETE_LINES, ConsoleColor.CYAN));
-        ArrayList<Integer> indicesToDelete = DeletionAndCorrectionController.createListOfIndicesToDelete(treeArrayList);
+        ArrayList<Integer> indicesToDelete = DeletionAndCorrectionController.createListOfIndicesToDelete(treeArrayList, arguments);
         ArrayList<Tree> afterDeletion = DeletionAndCorrectionController.removeInvalidLines(treeArrayList, indicesToDelete);
         MyIO.printTimeMessageAndSize(ANNOUNCEMENT_LINES_DELETED, stopwatch, indicesToDelete);
         return afterDeletion;
@@ -121,11 +121,11 @@ public class IOController implements Constants, Announcements
      * @param treeArrayList ArrayList of trees
      * @return ArrayList<Trees> return adjusted ArrayList
      * */
-    public static ArrayList<Tree> correctInvalidData (ArrayList<Tree> treeArrayList)
+    public static ArrayList<Tree> correctInvalidData (ArrayList<Tree> treeArrayList, String[] arguments)
     {
         Stopwatch stopwatch = new Stopwatch();
         MyIO.printLine(MyIO.formatString(ANNOUNCEMENT_ADJUST_DATA, ConsoleColor.CYAN));
-        Pair pairOfCountAndTreeArrayList = DeletionAndCorrectionController.correctTreeValues(treeArrayList);
+        Pair pairOfCountAndTreeArrayList = DeletionAndCorrectionController.correctTreeValues(treeArrayList, arguments);
         int countOfCorrectedTrees = pairOfCountAndTreeArrayList.getValue();
         ArrayList<Tree> afterCorrection = pairOfCountAndTreeArrayList.getTreeArrayList();
         MyIO.printTimeMessageAndNumber(ANNOUNCEMENT_TREES_CORRECTED, stopwatch, countOfCorrectedTrees);

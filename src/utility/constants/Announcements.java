@@ -30,4 +30,8 @@ public interface Announcements
     int ERROR_NEGATIVE_ONE = -1;
     String ERROR_COUNT = "There have been this number of errors: ";
     String GREETING = "Hello and welcome to my java programm!";
+    String ERROR_NO_ARGUMENT_IN_COMMAND_LINE = "No valid arguments have been passed in the command line";
+    String ERROR_TOO_MANY_ARGUMENTs_IN_COMMAND_LINE = "Too many arguments have been passed in the command line";
+    String ERROR_INVALID_ARGUMENT_IN_COMMAND_LINE = "An invalid argument has been passed in the command line";
+    String ERROR_INVALID_USER_INPUT = "The user typed in an invalid input";
 }

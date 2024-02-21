@@ -2,9 +2,10 @@ package control;
 
 
 import model.Tree;
-import utility.MyIO;
+import utility.constants.DataIndices;
+import view.MyIO;
 import utility.constants.Constants;
-import utility.service.Pair;
+import utility.ADT.Pair;
 
 import java.util.ArrayList;
 import java.util.function.ToDoubleFunction;
@@ -22,7 +23,7 @@ import java.util.function.ToDoubleFunction;
  * @version 1.0
  * @since 2024-24-01
  */
-public class DeletionAndCorrectionController implements Constants
+public class DeletionAndCorrectionController implements Constants, DataIndices
 {
     /**
      * @author Hannah Wollenweber
@@ -36,8 +37,13 @@ public class DeletionAndCorrectionController implements Constants
      * @param treeArrayList ArrayList of trees
      * @return ArrayList<Integer>
      */
-    public static ArrayList<Integer> createListOfIndicesToDelete (ArrayList<Tree> treeArrayList)
+    public static ArrayList<Integer> createListOfIndicesToDelete (ArrayList<Tree> treeArrayList, String[] arguments)
     {
+        int maxStandingTime = getArgument(arguments, INDEX_MAX_STANDING_TIME);
+        int maxHeight = getArgument(arguments, INDEX_MAX_HEIGHT);
+        int maxTrunkCircumference = getArgument(arguments, INDEX_MAX_TRUNK_CIRCUMFERENCE);
+        int maxTopDiameter = getArgument(arguments, INDEX_MAX_TOP_DIAMETER);
+
         ArrayList<Integer> indicesToDelete = new ArrayList<>();
         for (Tree tree : treeArrayList)
         {
@@ -55,35 +61,35 @@ public class DeletionAndCorrectionController implements Constants
                 continue;
             }
 
-            if (height > MAX_HEIGHT || height < MIN_HEIGHT)
+            if (height > maxHeight || height < MIN_HEIGHT)
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
             }
 
-            if (trunkCircumference > MAX_TRUNK_CIRCUMFERENCE)
+            if (trunkCircumference > maxTrunkCircumference)
             {
                 tree.setCircumference(trunkCircumference / CONVERSION_CENTI_TO_METER);
                 continue;
             }
-            if (trunkCircumference > MAX_TRUNK_CIRCUMFERENCE || trunkCircumference < MIN_TRUNK_CIRCUMFERENCE)
+            if (trunkCircumference > maxTrunkCircumference || trunkCircumference < MIN_TRUNK_CIRCUMFERENCE)
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
             }
-            if (treetopDiameter > MAX_TREETOP_DIAMETER || treetopDiameter < MIN_TREETOP_DIAMETER)
+            if (treetopDiameter > maxTopDiameter || treetopDiameter < MIN_TREETOP_DIAMETER)
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
             }
 
-            if (standingTime > MAX_TREE_AGE || standingTime < MIN_TREE_AGE)
+            if (standingTime > maxStandingTime || standingTime < MIN_STANDINGTIME)
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
             }
-            if ((((YEAR_OF_DATASET - yearOfPlanting) > MAX_TREE_AGE) && (yearOfPlanting != ZERO)) ||
-                    (((YEAR_OF_DATASET - tree.getYearOfPlanting()) < MIN_TREE_AGE) && (yearOfPlanting != ZERO)))
+            if ((((YEAR_OF_DATASET - yearOfPlanting) > maxStandingTime) && (yearOfPlanting != ZERO)) ||
+                    (((YEAR_OF_DATASET - tree.getYearOfPlanting()) < MIN_STANDINGTIME) && (yearOfPlanting != ZERO)))
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
@@ -205,18 +211,19 @@ public class DeletionAndCorrectionController implements Constants
 
 
     /**
-     * @author Hannah Wollenweber
-     * This method correct the misisng data from 0 to a plausible value calculated by average factors over the trees (since this is ana
-     * aproximation the genus and species are being ignored). The only values corrected are height and circumference since these are important
-     * for following tasks. The other values are being diregared due to their unimportance.
+     * @param treeArrayList ArrayList containing trees
+     * @param arguments
      *
+     * @return double
+     *
+     * @author Hannah Wollenweber
+     *         This method correct the misisng data from 0 to a plausible value calculated by average factors over the trees (since this is ana
+     *         aproximation the genus and species are being ignored). The only values corrected are height and circumference since these are important
+     *         for following tasks. The other values are being diregared due to their unimportance.
      * @precondition an ArrayList of trees is passed that has the correct attributes specified in the model
      * @postcondition the tree's attributes have been corrected if empty
-     *
-     * @param treeArrayList ArrayList containing trees
-     * @return double
      */
-    public static Pair correctTreeValues (ArrayList<Tree> treeArrayList)
+    public static Pair correctTreeValues (ArrayList<Tree> treeArrayList, String[] arguments)
     {
         //calculate all factors as they are needed in following method calls
         double heightFactor = calculateAttributeGrowthPerYear(treeArrayList, Tree::getHeight);
@@ -460,6 +467,7 @@ public class DeletionAndCorrectionController implements Constants
      * @param treeTopFactor previously calculated factor treeTopDiameter/year
      * @param trunkFactor previously calculated factor trunkCircumference/year
      */
+    //TODO add args
     private static void correctRemainingAttributes (Tree tree, int standingTime, double heightFactor, double treeTopFactor, double trunkFactor)
     {
         //correct height if value is zero
@@ -536,5 +544,12 @@ public class DeletionAndCorrectionController implements Constants
         {
             return newValue;
         }
+    }
+
+
+    //TODO ADD COMMENTS
+    private static int getArgument (String[] arguments, byte index)
+    {
+        return Integer.parseInt(arguments[index]);
     }
 }

@@ -2,7 +2,7 @@ package control;
 
 
 import model.*;
-import utility.MyIO;
+import view.MyIO;
 import utility.constants.Constants;
 import utility.constants.DataIndices;
 

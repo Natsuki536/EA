@@ -24,4 +24,8 @@ public interface DataIndices
     byte INDEX_TREE_TRUNK_CIRCUMFERENCE = 9;
     byte INDEX_HEIGHT = 10;
     byte INDEX_NEIGHBOURHOOD = 11;
+    byte INDEX_MAX_STANDING_TIME = 0;
+    byte INDEX_MAX_HEIGHT = 1;
+    byte INDEX_MAX_TRUNK_CIRCUMFERENCE = 2;
+    byte INDEX_MAX_TOP_DIAMETER = 3;
 }

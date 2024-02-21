@@ -1,11 +1,18 @@
-package utility;
+package view;
 
 
+import utility.constants.Announcements;
+import utility.constants.MenuConstants;
 import utility.service.Stopwatch;
 
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
+import java.util.InputMismatchException;
 
 
 /**
@@ -18,7 +25,7 @@ import java.util.Collection;
  * @version 1.0
  * @since 2024-01-10
  */
-public class MyIO
+public class MyIO implements MenuConstants, Announcements
 {
     private static final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm:ss:SSS";
     private static final String PROMPT = "-> ";
@@ -140,6 +147,27 @@ public class MyIO
     public static void printLine (Object objectToPrint)
     {
         System.out.println(objectToPrint.toString());
+    }
+
+
+    //TODO: ADD COMMENTS!!!
+    public static String getUserInput ()
+    {
+        print(USER_PROMPT, ConsoleColor.CYAN);
+        String userInput = String.valueOf(ERROR_NEGATIVE_ONE);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        try
+        {
+            userInput = br.readLine();
+            return userInput;
+        } catch (InputMismatchException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            throw new RuntimeException(e);
+        }
+        return userInput;
     }
 
 

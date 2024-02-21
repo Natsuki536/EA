@@ -2,7 +2,7 @@ package control;
 
 
 import model.Tree;
-import utility.MyIO;
+import view.MyIO;
 import utility.constants.Constants;
 
 import java.util.ArrayList;

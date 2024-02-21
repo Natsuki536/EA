@@ -47,4 +47,5 @@ public interface MenuConstants
             "12 How much carbon was stored by the trees in Berlin?\n" +
             "13 In which district did the largest carbon storage take place?\n" +
             "14 Which genus has stored the largest amount of carbon?";
+    String USER_PROMPT = "Please enter 'y' if you want to start the programm and 'n' if you want to exit.";
 }

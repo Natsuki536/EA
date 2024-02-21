@@ -1,10 +1,15 @@
 package control;
 
 
-import utility.ConsoleColor;
-import utility.MyIO;
+import view.ConsoleColor;
+import view.MyIO;
 import utility.constants.Announcements;
 import utility.constants.Constants;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Scanner;
 
 
 /**
@@ -23,6 +28,7 @@ public class Main implements Constants, Announcements
     public static void main (String[] args)
     {
         MyIO.print(GREETING, ConsoleColor.BLUE_BRIGHT);
-        IOController.openMenu(IOController.correctInvalidData(IOController.deleteInvalidTrees(IOController.parseDataToTreeObject(IOController.readDataFromTreeCSV()))));
+        MainController.validateArguments(args);
+        MainController.printMenu(args);
     }
 }

@@ -111,7 +111,7 @@ public class CSVParser implements Constants
 
         } catch (IOException e)
         {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
 
         return rawData;
