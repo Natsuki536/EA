@@ -46,7 +46,7 @@ public class GroupingAndSortingController implements Constants
             //The grouping is specified
             String grouping = getter.apply(tree).toString();
             //the tree is sorted into the Hashmap
-            groupedMap = addToMap(tree, groupedMap, grouping);
+            addToMap(tree, groupedMap, grouping);
         }
         return groupedMap;
     }
@@ -158,26 +158,26 @@ public class GroupingAndSortingController implements Constants
 
     /**
      * @author Hannah Wollenweber
-     * This method finds the neighbourhood with the tallest tree.
+     * This method finds the neighbourhood with the highest tree.
      * @precondition A Hashmap of the type Map<String, ArrayList<Tree>> is given.
-     * @postcondition The neighbourhood with the tallest tree is printed out
+     * @postcondition The neighbourhood with the highest tree is printed out
      * @param neighbourhoodMap Hashmap that represents trees being sorted by their neighbourhood
      */
     public static void findNeighbourhoodWithTallestTree (Map<String, ArrayList<Tree>> neighbourhoodMap)
     {
-        //set intial value for neighbourhood with tallest tree
+        //set initial value for neighbourhood with the highest tree
         String neighbourhoodWIthTallestTree = NEIGHBOURHOOD;
         double heightOfTallestTree = ZERO_DOUBLE;
 
-        //iterate through Hashmap and look for tallest tree in each neighbourhood
+        //iterate through Hashmap and look for highest tree in each neighbourhood
         for (Map.Entry<String, ArrayList<Tree>> entry : neighbourhoodMap.entrySet())
         {
             //set current values
             String neighbourhood = entry.getKey();
-            ArrayList<Tree> neighbourhhod = entry.getValue();
+            ArrayList<Tree> treesInNeighbourhood = entry.getValue();
 
-            //find talles tree in given neighbourhood
-            double tallestTreeInNeighbourhood = findTallestTree(neighbourhhod);
+            //find the highest tree in given treesInNeighbourhood
+            double tallestTreeInNeighbourhood = findTallestTree(treesInNeighbourhood);
 
             //replace initial values if current values are greater
             if (tallestTreeInNeighbourhood > heightOfTallestTree)
@@ -193,15 +193,15 @@ public class GroupingAndSortingController implements Constants
 
     /**
      * @author Hannah Wollenweber
-     * This method finds tallest tree for a given the neighbourhood
+     * This method finds the highest tree for a given the neighbourhood
      * @precondition An ArrayList of trees representing the concerning neighbourhood is given
-     * @postcondition The height of the tallest tree is returned
+     * @postcondition The height of the highest tree is returned
      * @param neighbourhood ArrayList that represents all trees in a certain neighbourhood
      * @return double tallestTree
      */
     private static double findTallestTree (ArrayList<Tree> neighbourhood)
     {
-        //initial value for height of tallest tree is set
+        //initial value for height of the highest tree is set
         double tallestTree = ZERO_DOUBLE;
         //the neighbourhood ArrayList is iterated through
         for (Tree tree : neighbourhood)
@@ -215,7 +215,7 @@ public class GroupingAndSortingController implements Constants
                 tallestTree = heightOfTree;
             }
         }
-        //return height of tallest tree
+        //return height of the highest tree
         return tallestTree;
     }
 
@@ -406,6 +406,7 @@ public class GroupingAndSortingController implements Constants
         }
         return sumCarbon;
     }
+
 
     public static void findMostCarbonBoundInGrouping (Map<String, ArrayList<Tree>> treesGrouped, String grouping)
     {

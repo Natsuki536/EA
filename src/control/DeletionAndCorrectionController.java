@@ -38,7 +38,7 @@ public class DeletionAndCorrectionController implements Constants
      */
     public static ArrayList<Integer> createListOfIndicesToDelete (ArrayList<Tree> treeArrayList)
     {
-        ArrayList<Integer> indicesToDelete = new ArrayList<Integer>();
+        ArrayList<Integer> indicesToDelete = new ArrayList<>();
         for (Tree tree : treeArrayList)
         {
             double treetopDiameter = tree.getTopDiameter();
@@ -88,7 +88,7 @@ public class DeletionAndCorrectionController implements Constants
                 addIndex(indicesToDelete, treeArrayList, tree);
                 continue;
             }
-            if (treeGenus.equals(UNBEKANNT) == true || treeGenus.equals(ZERO_STRING))
+            if (treeGenus.equals(UNBEKANNT) || treeGenus.equals(ZERO_STRING))
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
             }
@@ -136,7 +136,7 @@ public class DeletionAndCorrectionController implements Constants
                 treeArrayList.remove(index - indexCorrection);
             } catch (ArrayIndexOutOfBoundsException e)
             {
-                MyIO.printLine(e);
+                MyIO.printLine(e.getMessage());
             } finally
             {
                 indexCorrection++;
@@ -144,14 +144,6 @@ public class DeletionAndCorrectionController implements Constants
         }
         return treeArrayList;
     }
-    //TODO: Correct trees
-    /*
-      tallest tree Berlin: 43,5 meters
-      oldest tree: age: ~900 years
-      tree circumference: ca. 8meters
-     */
-
-    //TODO: create method for repairing: Get Height/trunk circumference and repair --> create vanilla tree and use it to repair
 
 
     /**
@@ -426,7 +418,7 @@ public class DeletionAndCorrectionController implements Constants
             }
             if (tree.getTopDiameter() != ZERO)
             {
-                //calculate a standing time using the treetopdiameter factor
+                //calculate a standing time using the treetop diameter factor
                 standingTime = calculateStandingTimeWithFactor(tree, diameterFactor, Tree::getTopDiameter);
 
                 //no escape needed since last call of while loop
@@ -446,7 +438,7 @@ public class DeletionAndCorrectionController implements Constants
      *
      * @param tree current tree
      * @param factor pre-calculated factor
-     * @param getter appropiate getter
+     * @param getter appropriate getter
      * @return int - the standing time
      */
     private static int calculateStandingTimeWithFactor (Tree tree, double factor, ToDoubleFunction<Tree> getter)
@@ -468,22 +460,21 @@ public class DeletionAndCorrectionController implements Constants
      * @param treeTopFactor previously calculated factor treeTopDiameter/year
      * @param trunkFactor previously calculated factor trunkCircumference/year
      */
-    //TODO: Remove MYIO.print methods!!!!
     private static void correctRemainingAttributes (Tree tree, int standingTime, double heightFactor, double treeTopFactor, double trunkFactor)
     {
-        //corect height if value is zero
+        //correct height if value is zero
         if (tree.getHeight() == ZERO_DOUBLE)
         {
             //calculate a value with standing time and a pre-calculated factor
-            double newValue = calculateNewValue(treeTopFactor, standingTime, MAX_HEIGHT, CORRECTION_HEIGHT);
+            double newValue = calculateNewValue(heightFactor, standingTime, MAX_HEIGHT, CORRECTION_HEIGHT);
 
             tree.setHeight(newValue);
         }
-        //corect trunk circumference if value is zero
+        //correct trunk circumference if value is zero
         if (tree.getTrunkCircumference() == ZERO_DOUBLE)
         {
             //calculate a value with standing time and a pre-calculated factor
-            double newValue = calculateNewValue(treeTopFactor, standingTime, MAX_TRUNK_CIRCUMFERENCE, CORRECTION_FOR_TRUNK_CIRCUMFERENCE);
+            double newValue = calculateNewValue(trunkFactor, standingTime, MAX_TRUNK_CIRCUMFERENCE, CORRECTION_FOR_TRUNK_CIRCUMFERENCE);
 
             tree.setCircumference(newValue);
         }

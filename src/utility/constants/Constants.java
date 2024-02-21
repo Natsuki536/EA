@@ -36,7 +36,7 @@ public interface Constants
     double ZERO_DOUBLE = 0d;
 
     //constants for believable data
-    int MAX_HEIGHT = 50;
+    int MAX_HEIGHT = 44;
     int MIN_HEIGHT = 0;
     Double CORRECTION_HEIGHT = 10d;
     Double MAX_TRUNK_CIRCUMFERENCE = 800d;
@@ -55,9 +55,12 @@ public interface Constants
     String GROUP_BY_GENUS = "Genus: ";
     String GROUP_BY_SPECIES = "Species: ";
     String NEIGHBOURHOOD = "Neighbourhood: ";
-    String SPECIES = ", Number of Species: ";
-    String HEIGHT_OF_TALLEST_TREE = "Height of tallest tree: ";
-    String NUMBER_OF_TREES = " Number of trees: ";
+    String SPECIES = ", with the following number of Species: ";
+    String HEIGHT_OF_TALLEST_TREE = ", with the height of tallest tree being: ";
+    String NUMBER_OF_TREES = ", with the following number of trees: ";
+    String LARGEST_CIRCUMFERENCE = "The tree with the largest trunk circumference has the following values:";
+    String LARGEST_CROWN = "The tree with the largest crown diameter has the following values:";
+    String OLDEST_TREE = "The oldest tree has the following values:";
     String TREE = "Tree: ";
     String ID = "ID: ";
     String TREETOP = "Treetop diameter: ";
@@ -67,6 +70,8 @@ public interface Constants
     String AVERAGE_CIRCUMFERENCE = ", Average circumference: ";
     String BOUND_CARBON = " has bound the following amount of carbon [in t]:";
     String BERLIN_BOUND_CARBON = "Berlin has bound the following amount of carbon: ";
+    String NUMBER_GENERA = "There are the following number of genera: ";
+    String NUMBER_SPECIES = "There are the following number of species: ";
 
 
 

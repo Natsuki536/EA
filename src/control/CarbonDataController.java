@@ -4,11 +4,12 @@ package control;
 import model.Tree;
 import utility.MyIO;
 import utility.TreeCarbonData;
-import utility.TreeCategorized;
+import utility.TreesCategorized;
 import utility.constants.Announcements;
 import utility.constants.Constants;
 
 import java.util.InputMismatchException;
+
 
 /**
  * <h1>Carbon Data Controller</h1>
@@ -20,7 +21,7 @@ import java.util.InputMismatchException;
  * @version 1.0
  * @since 2024-20-02
  */
-public class CarbonDataController implements TreeCategorized, Constants, Announcements, TreeCarbonData
+public class CarbonDataController implements TreesCategorized, Constants, Announcements, TreeCarbonData
 {
     /**
      * @author Hannah Wollenweber
@@ -42,7 +43,7 @@ public class CarbonDataController implements TreeCategorized, Constants, Announc
             switch (foliageHabit)
             {
                 case (CONIFEROUS):
-                    boundCarbon = calculateBoundCarbon(tree, pineCarbonByHeightAndCircumference);
+                    boundCarbon = calculateBoundCarbon(tree, spruceCarbonByHeightAndCircumference);
                     break;
                 case (DECIDUOUS):
                     boundCarbon = calculateBoundCarbon(tree, oakCarbonByHeightAndCircumference);
@@ -89,7 +90,7 @@ public class CarbonDataController implements TreeCategorized, Constants, Announc
      * @param tree passed tree
      * @param lookuptable lookup table that is in accordance with tree's foliage habit
      * @return the bound carbon as int
-     * @exception  ArrayIndexOutOfBoundsException exception thrown
+     * @exception ArrayIndexOutOfBoundsException exception thrown
      */
     private static int calculateBoundCarbon (Tree tree, int[][] lookuptable)
     {
@@ -108,9 +109,15 @@ public class CarbonDataController implements TreeCategorized, Constants, Announc
         //if the tree's height or the tree's trunk circumference exceed the table the max indices have to be used
         if (height >= MAX_INDEX_HEIGHT || trunkCircumference >= MAX_INDEX_CIRCUMFERENCE)
         {
-            return lookuptable[MAX_INDEX_HEIGHT][MAX_INDEX_CIRCUMFERENCE];
-        }
-        else
+            try
+            {
+                return lookuptable[MAX_INDEX_HEIGHT][MAX_INDEX_CIRCUMFERENCE];
+            } catch (ArrayIndexOutOfBoundsException e)
+            {
+                MyIO.print(e.getMessage());
+                return ERROR_NEGATIVE_ONE;
+            }
+        } else
         {
             try
             {
@@ -118,13 +125,12 @@ public class CarbonDataController implements TreeCategorized, Constants, Announc
                 if (trunkCircumference < sizeSecondDimension)
                 {
                     return lookuptable[height][trunkCircumference];
-                }
-                else
+                } else
                 {
                     //return maximum value possible for height if circumference does exceed
-                    return lookuptable[height] [sizeSecondDimension];
+                    return lookuptable[height][sizeSecondDimension];
                 }
-            }catch (ArrayIndexOutOfBoundsException e)
+            } catch (ArrayIndexOutOfBoundsException e)
             {
                 MyIO.print(e.getMessage()); //TODO: check exception handling
                 return ERROR_NEGATIVE_ONE;
@@ -142,17 +148,32 @@ public class CarbonDataController implements TreeCategorized, Constants, Announc
      *
      * @param lookuptable lookup table used
      * @param height height of the tree, used to get to second dimension
-     * @return
+     * @return size of second dimension as int
+     *
+     * @exception ArrayIndexOutOfBoundsException exception that might be thrown when array is being accessed
      */
     private static int calculateSecondDimensionSize (int[][] lookuptable, int height)
     {
         if (height < MAX_INDEX_HEIGHT)
         {
-            return lookuptable[height].length + NEGATIVE_ONE;
-        }
-        else
+            try
+            {
+                return lookuptable[height].length + NEGATIVE_ONE;
+            } catch (ArrayIndexOutOfBoundsException e)
+            {
+                MyIO.print(e.getMessage());
+                return ERROR_NEGATIVE_ONE;
+            }
+        } else
         {
-            return lookuptable[MAX_INDEX_HEIGHT].length + NEGATIVE_ONE;
+            try
+            {
+                return lookuptable[MAX_INDEX_HEIGHT].length + NEGATIVE_ONE;
+            } catch (ArrayIndexOutOfBoundsException e)
+            {
+                MyIO.print(e.getMessage());
+                return ERROR_NEGATIVE_ONE;
+            }
         }
     }
 }

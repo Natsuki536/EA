@@ -7,8 +7,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Collection;
 
-//TODO: Add comments with description, param, return & pre-&postcondition
-
 
 /**
  * <h1>MyIO</h1>

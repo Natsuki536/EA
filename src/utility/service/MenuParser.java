@@ -41,8 +41,6 @@ public class MenuParser implements MenuConstants, Announcements, Constants
     public static void createMenu (ArrayList<Tree> treeArrayList)
     {
         //TODO: Check output and make it prettier!!!
-        //ArrayList<Tree> treeArrayList = IOController.deleteInvalidTrees(IOController.parseDataToTreeObject(IOController.readDataFromTreeCSV()));
-
         //declare and instantiate a scanner for the user input
         Scanner scanner = new Scanner(System.in);
 
@@ -62,72 +60,64 @@ public class MenuParser implements MenuConstants, Announcements, Constants
                 {
                     case (CHOICE_1):
                         GroupingAndSortingController.findGroupWithMostTrees(GroupingAndSortingController.groupBy(treeArrayList, Tree::getNeighbourhood), NEIGHBOURHOOD);
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_2):
                         GroupingAndSortingController.findNeighbourhoodWithTallestTree(GroupingAndSortingController.groupBy(treeArrayList, Tree::getNeighbourhood));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_3):
+                        MyIO.print(LARGEST_CIRCUMFERENCE, ConsoleColor.CYAN);
                         GroupingAndSortingController.printSuperlativeTree(GroupingAndSortingController.findSuperlative(treeArrayList, Tree::getTrunkCircumference));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_4):
+                        MyIO.print(LARGEST_CROWN, ConsoleColor.CYAN);
                         GroupingAndSortingController.printSuperlativeTree(GroupingAndSortingController.findSuperlative(treeArrayList, Tree::getTopDiameter));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_5):
+                        MyIO.print(OLDEST_TREE, ConsoleColor.CYAN);
                         GroupingAndSortingController.printSuperlativeTree(GroupingAndSortingController.findSuperlative(treeArrayList, Tree::getTreeStandingTime));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_6):
+                        MyIO.print(NUMBER_SPECIES, ConsoleColor.CYAN);
                         MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getSpecies).size()));
                         printMenu();
                         break;
                     case (CHOICE_7):
+                        MyIO.print(NUMBER_GENERA, ConsoleColor.CYAN);
                         MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus).size()));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_8):
                         GroupingAndSortingController.findGroupWithMostTrees(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus), GROUP_BY_GENUS);
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_9):
                         GroupingAndSortingController.findNeighbourhoodWithMostSpecies(GroupingAndSortingController.groupTreesByNeighbourhoodAndSpecies(treeArrayList));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_10):
                         GroupingAndSortingController.findAverageHeightOfGenus(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_11):
                         GroupingAndSortingController.findAverageCircumferenceOfGenus(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
-                    case (CHOICE_12): //TODO: Implement functions for 12-14!!
-                        MyIO.print(BERLIN_BOUND_CARBON + String.valueOf(GroupingAndSortingController.calculateBoundCarbon(treeArrayList)));
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                    case (CHOICE_12):
+                        MyIO.print(BERLIN_BOUND_CARBON + GroupingAndSortingController.calculateBoundCarbon(treeArrayList));
+                        promptUserAgain();
                         break;
                     case (CHOICE_13):
                         GroupingAndSortingController.findMostCarbonBoundInGrouping(GroupingAndSortingController.groupBy(treeArrayList, Tree::getNeighbourhood), NEIGHBOURHOOD);
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (CHOICE_14):
                         GroupingAndSortingController.findMostCarbonBoundInGrouping(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus), GROUP_BY_GENUS);
-                        MyIO.print(NEW_LINE);
-                        printMenu();
+                        promptUserAgain();
                         break;
                     case (EXIT):
                         MyIO.print(BYE);
@@ -152,5 +142,18 @@ public class MenuParser implements MenuConstants, Announcements, Constants
     {
         MyIO.printLine(MyIO.formatString(QUERY, ConsoleColor.CYAN));
         MyIO.print(CHOICES);
+    }
+
+
+    /**
+     * @author Hannah Wollenweber
+     * This method displays a menu with questions to choose from that are numbered.
+     * @precondition none
+     * @postcondition The menu is displayed
+     * */
+    private static void promptUserAgain ()
+    {
+        MyIO.print(NEW_LINE);
+        printMenu();
     }
 }

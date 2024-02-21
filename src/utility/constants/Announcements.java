@@ -1,5 +1,6 @@
 package utility.constants;
 
+
 /**
  * <h1>Announcement Constants</h1>
  * <p>
@@ -14,19 +15,19 @@ public interface Announcements
 {
     //String for error announcements
     String INVALID_INPUT = "Invalid input";
-//TODO:translate to English
     //String constants for announcements
-    String ANNOUNCEMENT_DATA_READ = "Die Datei mit dem folgenden Pfad wird jetzt eingelesen -> ";
-    String ANNOUNCEMENT_DATA_READ_SUCCESSFUL = "Die Datei wurde in %dms eingelesen , es wurden %d Zeilen gefunden ...";
-    String ANNOUNCEMENT_PARSE_DATA = "Die Datei wird nun verarbeitet und geparst... -> ";
-    String ANNOUNCEMENT_DATA_PARSE_SUCCESSFUL = "Die Daten wurden erfolgreich in %dms geparsed , dabei wurden %d Datenobjekte validiert ... ";
-    String ANNOUNCEMENT_PRINT_DATA = "Die Datei wird nun ausgegeben... -> ";
-    String ANNOUNCEMENT_PRINT_OF_ARRAYLIST_SUCCESSFUL = "Die Daten wurden erfolgreich in %dms ausgegeben, dabei wurden %d Datenobjekte verarbeitet";
-    String ANNOUNCEMENT_DELETE_LINES = "Invalide Datensätze werden nun gelöscht... -> ";
-    String ANNOUNCEMENT_LINES_DELTED = "Die invaliden Daten wurden in %dms gelöscht. Es wurden %d Datensätze gelöscht.";
-    String ANNOUNCEMENT_ADJUST_DATA = "Datensätze werden nun angepasst... -> ";
-    String ANNOUNCEMENT_TREES_CORRECTED = "Die invaliden Daten wurden in %dms korrigiert. Es wurden %d Datensätze korrigiert.";
-    String ANNOUNCEMENT_OPEN_MENU = "Das Menü wird nun geöffnet... -> ";
+    String ANNOUNCEMENT_DATA_READ = "The file with the following path is now read in -> ";
+    String ANNOUNCEMENT_DATA_READ_SUCCESSFUL = "The file was read in %dms , %d lines were found ...";
+    String ANNOUNCEMENT_PARSE_DATA = "The file is now processed and parsed... ->";
+    String ANNOUNCEMENT_DATA_PARSE_SUCCESSFUL = "The data was successfully parsed in %dms , validating %d data objects ...";
+    String ANNOUNCEMENT_PRINT_DATA = "The file is now output... ->";
+    String ANNOUNCEMENT_PRINT_OF_ARRAYLIST_SUCCESSFUL = "The data was successfully output in %dms and %d data objects were processed";
+    String ANNOUNCEMENT_DELETE_LINES = "Invalid data records will now be deleted... ->";
+    String ANNOUNCEMENT_LINES_DELETED = "The invalid data was deleted in %dms. %d data records were deleted.";
+    String ANNOUNCEMENT_ADJUST_DATA = "Data records will now be adjusted... ->";
+    String ANNOUNCEMENT_TREES_CORRECTED = "The invalid data was corrected in %dms. The %d data records have been corrected.";
+    String ANNOUNCEMENT_OPEN_MENU = "The menu will now be opened...  -> ";
     int ERROR_NEGATIVE_ONE = -1;
     String ERROR_COUNT = "There have been this number of errors: ";
+    String GREETING = "Hello and welcome to my java programm!";
 }

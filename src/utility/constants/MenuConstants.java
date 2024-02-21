@@ -28,24 +28,23 @@ public interface MenuConstants
     String CHOICE_13 = "13";
     String CHOICE_14 = "14";
     String EXIT = "exit";
-    String BYE = "Bye then";
+    String BYE = "Goodbye, see you next time!";
 
 
     //String for query
     String QUERY = "Please choose one of the following options by typing the according number or exit the meu with 'exit'";
-    //TODO: translate to English
-    String CHOICES = "1 Welcher Bezirk hat die meisten Bäume?\n" +
-            "2 In welchem Bezirk steht der höchste Baum?\n" +
-            "3 Welcher Baum hat den größten Umfang?\n" +
-            "4 Welcher Baum hat die größte Krone?\n" +
-            "5 Welcher Baum ist der älteste?\n" +
-            "6 Wie viele Baumarten gibt es?\n" +
-            "7 Wie viele Gattungen gibt es?\n" +
-            "8 Welche Gattung kommt am häufigsten vor?\n" +
-            "9 In welchem Bezirk stehen die meisten Baumarten?\n" +
-            "10 Welche Gattung wächst am höchsten?\n" +
-            "11 Welche Gattung hat den größten Umfang?\n" +
-            "12 Wie viel Kohlenstoff wurde von den Bäumen in Berlin gespeichert?\n" +
-            "13 In welchem Bezirk fand die größte Kohlenstoffspeicherung statt?\n" +
-            "14 Welche Gattung hat die größte Menge an Kohlenstoff gespeichert?";
+    String CHOICES = "1 Which district has the most trees?\n" +
+            "2 In which district is the tallest tree?\n" +
+            "3 Which tree has the largest circumference?\n" +
+            "4 Which tree has the largest crown?\n" +
+            "5 Which tree is the oldest?\n" +
+            "6 How many tree species are there?\n" +
+            "7 How many genera are there?\n" +
+            "8 Which genus is the most common?\n" +
+            "9 In which district are the most tree species found?\n" +
+            "10 Which genus grows the tallest?\n" +
+            "11 Which genus has the largest size?\n" +
+            "12 How much carbon was stored by the trees in Berlin?\n" +
+            "13 In which district did the largest carbon storage take place?\n" +
+            "14 Which genus has stored the largest amount of carbon?";
 }

@@ -9,8 +9,6 @@ import utility.constants.DataIndices;
 
 import java.util.ArrayList;
 
-//TODO Add comments with description, param, return & pre-&postcondition
-
 
 /**
  * <h1>Tree-Controller</h1>
@@ -27,8 +25,10 @@ public abstract class TreeController implements Constants, DataIndices
     /**
      * @author Hannah Wollenweber
      * This method creates an ArrayList of Trees from a given ArrayList with StringArrays
+     *
      * @precondition The StringArrays contain 12 data fields -> have indices zero through eleven
      * @postcondition An ArrayList of Trees is returned
+     *
      * @param rawDataArrayList ArrayList of StringArrays
      * @return treeArrayListOutput
      */
@@ -57,8 +57,10 @@ public abstract class TreeController implements Constants, DataIndices
     /**
      * @author Hannah Wollenweber
      * This method creates tree objects out of a given string array
+     *
      * @precondition The given array is a StringArray with 12 fields
      * @postcondition The returned object is a Tree with its attributes.
+     *
      * @param rawData StringArray representing a data line that is used to creat tree
      * @return tree|null
      */
@@ -84,7 +86,7 @@ public abstract class TreeController implements Constants, DataIndices
         {
             //print information that might help with debugging
             MyIO.print(rawData[DataIndices.INDEX_ID]);
-            MyIO.printLine(e);
+            MyIO.printLine(e.getMessage());
             return null;
         }
     }
@@ -94,8 +96,10 @@ public abstract class TreeController implements Constants, DataIndices
      * @author Hannah Wollenweber
      * This method replaces empty strings or strings with solely a space with a zero.
      * If the array has fewer fields, an ArrayIndexOutOfBoundsException is thrown
+     *
      * @precondition The method receives a string array of size 12
      * @postcondition The method returns the given array, now without empty strings
+     *
      * @param dataLine StringArray representing a data line
      */
     public static void fillEmptyString (String[] dataLine)
@@ -116,7 +120,7 @@ public abstract class TreeController implements Constants, DataIndices
         {
             //print information that might help with debugging
             MyIO.print(dataLine[DataIndices.INDEX_ID]);
-            MyIO.printLine(e);
+            MyIO.printLine(e.getMessage());
         }
     }
 }

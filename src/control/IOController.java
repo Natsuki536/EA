@@ -55,7 +55,7 @@ public class IOController implements Constants, Announcements
             return rawDataOutput;
         } catch (FileNotFoundException e)
         {
-            MyIO.printLine(e);
+            MyIO.printLine(e.getMessage());
             throw new RuntimeException();
         }
     }
@@ -83,7 +83,7 @@ public class IOController implements Constants, Announcements
      * @author Hannah Wollenweber
      * @precondition the called functions work properly
      * @postcondition The ArrayList is printed out
-     * @param arrayListOfArrays ArrayList of Stringarrays
+     * @param arrayListOfArrays ArrayList of StringArrays
      * */
     public static void printRawDataArrayList (ArrayList<String[]> arrayListOfArrays)
     {
@@ -108,11 +108,11 @@ public class IOController implements Constants, Announcements
         MyIO.printLine(MyIO.formatString(ANNOUNCEMENT_DELETE_LINES, ConsoleColor.CYAN));
         ArrayList<Integer> indicesToDelete = DeletionAndCorrectionController.createListOfIndicesToDelete(treeArrayList);
         ArrayList<Tree> afterDeletion = DeletionAndCorrectionController.removeInvalidLines(treeArrayList, indicesToDelete);
-        MyIO.printTimeMessageAndSize(ANNOUNCEMENT_LINES_DELTED, stopwatch, indicesToDelete);
+        MyIO.printTimeMessageAndSize(ANNOUNCEMENT_LINES_DELETED, stopwatch, indicesToDelete);
         return afterDeletion;
     }
 
-    //TODO: find a way to add number of corrected trees
+
     /**
      * @author Hannah Wollenweber
      * This method displays the result of the method correctTreeValues()
