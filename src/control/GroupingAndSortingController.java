@@ -397,13 +397,37 @@ public class GroupingAndSortingController implements Constants
      * @param treeArrayList ArrayList of trees is Berlin
      * @return the sum of all carbon bound by trees in Berlin
      */
-    public static long calculateBoundCarbonOfBerlin (ArrayList<Tree> treeArrayList)
+    public static long calculateBoundCarbon (ArrayList<Tree> treeArrayList)
     {
-        long sumCarbonBerlin = ZERO;
+        long sumCarbon = ZERO;
         for (Tree tree : treeArrayList)
         {
-            sumCarbonBerlin += returnBoundCarbon(tree);
+            sumCarbon += returnBoundCarbon(tree);
         }
-        return sumCarbonBerlin;
+        return sumCarbon;
+    }
+
+    public static void findMostCarbonBoundInGrouping (Map<String, ArrayList<Tree>> treesGrouped, String grouping)
+    {
+        //initial value for height of tree number in neighbourhood
+        long mostCarbonBound = ZERO;
+        String group = grouping;
+        //the group ArrayList is iterated through
+        for (Map.Entry<String, ArrayList<Tree>> entry : treesGrouped.entrySet())
+        {
+            //get current group
+            String currentGroup = entry.getKey();
+
+            //get number of trees in current neighbourhood
+            long carbonBoundInGroup = calculateBoundCarbon(entry.getValue());
+
+            //replace initial value if current value is greater
+            if (carbonBoundInGroup > mostCarbonBound)
+            {
+                mostCarbonBound = carbonBoundInGroup;
+                group = currentGroup;
+            }
+        }
+        MyIO.print(grouping + group + BOUND_CARBON + mostCarbonBound);
     }
 }

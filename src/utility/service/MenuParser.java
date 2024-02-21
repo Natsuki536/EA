@@ -40,7 +40,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
      * */
     public static void createMenu (ArrayList<Tree> treeArrayList)
     {
-        //TODO: optimise this!!!
+        //TODO: Check output and make it prettier!!!
         //ArrayList<Tree> treeArrayList = IOController.deleteInvalidTrees(IOController.parseDataToTreeObject(IOController.readDataFromTreeCSV()));
 
         //declare and instantiate a scanner for the user input
@@ -115,17 +115,17 @@ public class MenuParser implements MenuConstants, Announcements, Constants
                         printMenu();
                         break;
                     case (CHOICE_12): //TODO: Implement functions for 12-14!!
-                        MyIO.print(String.valueOf(GroupingAndSortingController.calculateBoundCarbonOfBerlin(treeArrayList)));
+                        MyIO.print(BERLIN_BOUND_CARBON + String.valueOf(GroupingAndSortingController.calculateBoundCarbon(treeArrayList)));
                         MyIO.print(NEW_LINE);
                         printMenu();
                         break;
                     case (CHOICE_13):
-                        //function
+                        GroupingAndSortingController.findMostCarbonBoundInGrouping(GroupingAndSortingController.groupBy(treeArrayList, Tree::getNeighbourhood), NEIGHBOURHOOD);
                         MyIO.print(NEW_LINE);
                         printMenu();
                         break;
                     case (CHOICE_14):
-                        //function
+                        GroupingAndSortingController.findMostCarbonBoundInGrouping(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus), GROUP_BY_GENUS);
                         MyIO.print(NEW_LINE);
                         printMenu();
                         break;

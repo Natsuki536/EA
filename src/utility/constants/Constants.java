@@ -65,6 +65,8 @@ public interface Constants
     String STANDINGTIME = "Standing time: ";
     String AVERAGE_HEIGHT = ", Average height: ";
     String AVERAGE_CIRCUMFERENCE = ", Average circumference: ";
+    String BOUND_CARBON = " has bound the following amount of carbon [in t]:";
+    String BERLIN_BOUND_CARBON = "Berlin has bound the following amount of carbon: ";
 
 
 
