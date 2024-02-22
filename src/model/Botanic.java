@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * <h1>Botanic</h1>
  * <p>
@@ -13,18 +14,21 @@ package model;
  */
 public class Botanic
 {
-    String treeSpecies;
-    String treeSpeciesBotanical;
-    String treeGenus;
-    String treeGenusGerman;
+    private String treeSpecies;
+    private String treeSpeciesBotanical;
+    private String treeGenus;
+    private String treeGenusGerman;
+
 
     //Constructor
-    public Botanic (String treeSpecies, String treeSpeciesBotanical, String treeGenus, String treeGenusGerman){
+    public Botanic (String treeSpecies, String treeSpeciesBotanical, String treeGenus, String treeGenusGerman)
+    {
         this.treeSpecies = treeSpecies;
         this.treeSpeciesBotanical = treeSpeciesBotanical;
-        this. treeGenus = treeGenus;
+        this.treeGenus = treeGenus;
         this.treeGenusGerman = treeGenusGerman;
     }
+
 
     //Getter
     public String getTreeSpecies ()

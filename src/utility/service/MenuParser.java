@@ -11,7 +11,6 @@ import model.Tree;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 
 /**
@@ -41,8 +40,6 @@ public class MenuParser implements MenuConstants, Announcements, Constants
     public static void createMenu (ArrayList<Tree> treeArrayList)
     {
         //TODO: Check output and make it prettier!!!
-        //declare and instantiate a scanner for the user input
-        Scanner scanner = new Scanner(System.in);
 
         //boolean for making sure the menu runs as long as the user doesn't exit
         boolean running = true;
@@ -52,7 +49,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
         while (running)
         {
             //get user's choice
-            String choice = scanner.nextLine();
+            String choice = MyIO.getUserInput();
 
             try
             {
@@ -84,12 +81,12 @@ public class MenuParser implements MenuConstants, Announcements, Constants
                         break;
                     case (CHOICE_6):
                         MyIO.print(NUMBER_SPECIES, ConsoleColor.CYAN);
-                        MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getSpecies).size()));
+                        MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getSpecies).size()), ConsoleColor.GREEN_BRIGHT);
                         printMenu();
                         break;
                     case (CHOICE_7):
                         MyIO.print(NUMBER_GENERA, ConsoleColor.CYAN);
-                        MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus).size()));
+                        MyIO.print(String.valueOf(GroupingAndSortingController.groupBy(treeArrayList, Tree::getGenus).size()), ConsoleColor.GREEN_BRIGHT);
                         promptUserAgain();
                         break;
                     case (CHOICE_8):
@@ -109,7 +106,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
                         promptUserAgain();
                         break;
                     case (CHOICE_12):
-                        MyIO.print(BERLIN_BOUND_CARBON + GroupingAndSortingController.calculateBoundCarbon(treeArrayList));
+                        MyIO.print(BERLIN_BOUND_CARBON + GroupingAndSortingController.calculateBoundCarbon(treeArrayList), ConsoleColor.GREEN_BRIGHT);
                         promptUserAgain();
                         break;
                     case (CHOICE_13):
@@ -121,13 +118,16 @@ public class MenuParser implements MenuConstants, Announcements, Constants
                         promptUserAgain();
                         break;
                     case (EXIT):
-                        MyIO.print(BYE);
+                        MyIO.print(BYE, ConsoleColor.YELLOW_BRIGHT);
                         running = false;
+                        break;
+                    default:
+                        MyIO.print(Announcements.INVALID_INPUT, ConsoleColor.RED_BRIGHT);
                         break;
                 }
             } catch (InputMismatchException e)
             {
-                MyIO.print(INVALID_INPUT);
+                MyIO.print(INVALID_INPUT, ConsoleColor.RED_BRIGHT);
             }
         }
     }
@@ -141,7 +141,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
      * */
     private static void printMenu ()
     {
-        MyIO.printLine(MyIO.formatString(QUERY, ConsoleColor.CYAN));
+        MyIO.printLine(MyIO.formatString(QUERY, ConsoleColor.YELLOW_BRIGHT));
         MyIO.print(CHOICES);
     }
 
@@ -149,6 +149,7 @@ public class MenuParser implements MenuConstants, Announcements, Constants
     /**
      * @author Hannah Wollenweber
      * This method displays a menu with questions to choose from that are numbered.
+     *
      * @precondition none
      * @postcondition The menu is displayed
      * */

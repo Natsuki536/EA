@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * <h1>Site</h1>
  * <p>
@@ -13,8 +14,9 @@ package model;
  */
 public class Site
 {
-    String neighbourhood;
-    String vicinity;
+    private String neighbourhood;
+    private String vicinity;
+
 
     //Constructor
     public Site (String vicinity, String neighbourhood)
@@ -24,6 +26,7 @@ public class Site
             this.neighbourhood = neighbourhood;
         }
     }
+
 
     //Getter
     public String getNeighbourhood ()

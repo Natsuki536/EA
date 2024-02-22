@@ -1,5 +1,9 @@
 package model;
 
+
+import utility.constants.ToStringConstants;
+
+
 /**
  * <h1>Tree</h1>
  * <p>
@@ -12,7 +16,7 @@ package model;
  * @version 1.0
  * @since 2024-01-10
  */
-public class Tree
+public class Tree implements Comparable<Tree>, ToStringConstants
 {
     private int id;
     private Site site;
@@ -53,13 +57,13 @@ public class Tree
 
 
     //Getter--------------------------------------
-    public String getId ()
+    public int getId ()
     {
-        return String.valueOf(id);
+        return id;
     }
 
 
-    public Site getAddress ()
+    public Site getSite ()
     {
         return site;
     }
@@ -115,26 +119,30 @@ public class Tree
 
     public String getNeighbourhood ()
     {
-        return getAddress().getNeighbourhood();
+        return getSite().getNeighbourhood();
     }
+
 
     public String getGenus ()
     {
         return getBotanic().getTreeGenus();
     }
 
+
     public String getSpecies ()
     {
         return getBotanic().getTreeSpecies();
     }
+
 
     public String getSpeciesBotanical ()
     {
         return getBotanic().getTreeSpeciesBotanical();
     }
 
+
     //Setter---------------------------------------
-    public void setAge (TimeData timeData)
+    public void setTimeData (TimeData timeData)
     {
         this.timeData = timeData;
     }
@@ -157,13 +165,67 @@ public class Tree
         metric.setHeight(height);
     }
 
+
     public void setCircumference (double circumference)
     {
         metric.setTrunkCircumference(circumference);
     }
 
+
     public void setTopDiameter (double topDiameter)
     {
         metric.setTreetopDiameter(topDiameter);
+    }
+
+
+    @Override
+    public int compareTo (Tree anotherTree)
+    {
+        return Integer.compare(this.getId(), anotherTree.getId());
+    }
+
+
+    @Override
+    public String toString ()
+    {
+        return BRACKET_OPEN + OBJECT_ID + this.id + SEMICOLON + VICINITY + this.site.getVicinity() + SEMICOLON + GERMAN_SPECIES + this.botanic.getTreeSpecies() +
+            SEMICOLON + BOTANIC_SPECIES + this.botanic.getTreeSpeciesBotanical() + SEMICOLON + GERMAN_GENUS + this.botanic.getTreeSpecies() +
+            SEMICOLON + LATIN_GENUS + this.botanic.getTreeGenus() + SEMICOLON + YEAR_OF_PLANTING + this.timeData.getYearOfPlanting() +
+            SEMICOLON + STANDING_TIME + this.timeData.getStandingTime() + SEMICOLON + CROWN + this.metric.getTreetopDiameter() + SEMICOLON + TRUNK_CIRCUMFERENCE + this.metric.getTrunkCircumference() +
+            SEMICOLON + HEIGHT + this.getHeight() + SEMICOLON + DISTRICT + this.getNeighbourhood() + BRACKET_CLOSE;
+    }
+
+
+    @Override
+    public boolean equals (Object anotherObject)
+    {
+        if (anotherObject == null)
+        {
+            return false; // Null-Akzeptanz
+        }
+        if (this == anotherObject)
+        {
+            return true; // Reflexivität
+        }
+        if (this.getClass() != anotherObject.getClass()) //Object has to be of same class
+        {
+            return false;
+        }
+        //cast object to tree
+        Tree anotherTree = (Tree) anotherObject;
+
+        //return equality as boolean
+        return (this.getId() == anotherTree.getId()) &&
+                (this.getSite().getVicinity() == anotherTree.getSite().getVicinity()) &&
+                (this.getGenus() == anotherTree.getGenus()) &&
+                (this.getBotanic().getTreeGenusGerman() == anotherTree.getBotanic().getTreeGenusGerman()) &&
+                (this.getSpeciesBotanical() == anotherTree.getSpeciesBotanical()) &&
+                (this.getSpecies() == anotherTree.getSpecies()) &&
+                (this.getYearOfPlanting() == anotherTree.getYearOfPlanting()) &&
+                (this.getTreeStandingTime() == anotherTree.getTreeStandingTime()) &&
+                (this.getTopDiameter() == anotherTree.getTopDiameter()) &&
+                (this.getTrunkCircumference() == anotherTree.getTrunkCircumference()) &&
+                (this.getHeight() == anotherTree.getHeight()) &&
+                (this.getNeighbourhood() == anotherTree.getNeighbourhood());
     }
 }

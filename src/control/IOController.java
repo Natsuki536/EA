@@ -8,7 +8,7 @@ import utility.constants.Announcements;
 import utility.constants.Constants;
 import utility.service.CSVParser;
 import utility.service.MenuParser;
-import utility.ADT.Pair;
+import utility.adt.Pair;
 import utility.service.Stopwatch;
 
 import java.io.FileNotFoundException;
@@ -55,7 +55,7 @@ public class IOController implements Constants, Announcements
             return rawDataOutput;
         } catch (FileNotFoundException e)
         {
-            MyIO.printLine(e.getMessage());
+            MyIO.print(e.getMessage(), ConsoleColor.RED_BRIGHT);
             throw new RuntimeException();
         }
     }

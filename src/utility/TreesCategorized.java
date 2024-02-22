@@ -3,6 +3,7 @@ package utility;
 
 import java.util.List;
 
+
 /**
  * <h1>Carbon Data Lookup Tables</h1>
  * <p>
@@ -46,7 +47,7 @@ public interface TreesCategorized
     );
 
     List<String> CONIFEROUS_GENERA = List.of(
-            "ABIES", "BIOTA", "CALOCEDRUS", "CEDRUS", "CEPHALOTAXUS","CHAMAECYPARIS", "CUPRESSOCYPARIS", "CUPRESSUS",
+            "ABIES", "BIOTA", "CALOCEDRUS", "CEDRUS", "CEPHALOTAXUS", "CHAMAECYPARIS", "CUPRESSOCYPARIS", "CUPRESSUS",
             "CRYPTOMERIA", "JUNIPERUS", "LARIX", "METASEQUOIA", "PICEA", "PINUS", "PSEUDOTSUGA", "PSEUDOLARIX", "SEQUOIA",
             "SEQUOIADENDRON", "TAXUS", "TAXODIUM", "THUJA", "THUJOPSIS", "TSUGA"
     );

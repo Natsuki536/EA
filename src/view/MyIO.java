@@ -153,18 +153,21 @@ public class MyIO implements MenuConstants, Announcements
     //TODO: ADD COMMENTS!!!
     public static String getUserInput ()
     {
-        print(USER_PROMPT, ConsoleColor.CYAN);
+        //set initial userInput
         String userInput = String.valueOf(ERROR_NEGATIVE_ONE);
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        //create buffered reader
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         try
         {
-            userInput = br.readLine();
+            //read user input and return it
+            userInput = bufferedReader.readLine();
             return userInput;
         } catch (InputMismatchException e)
         {
             e.printStackTrace();
         } catch (IOException e)
         {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
         return userInput;

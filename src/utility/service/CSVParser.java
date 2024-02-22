@@ -2,6 +2,8 @@ package utility.service;
 
 
 import utility.constants.Constants;
+import view.ConsoleColor;
+import view.MyIO;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ import java.util.ArrayList;
  * </p>
  * <h3>RFC 4180</h3>
  * <p>
- *     The RFC 4180 or Common Format and MIME Type for Comma-Seperated Values Files defines a variant of CSV.
+ *     The RFC 4180 or "Common Format and MIME Type for Comma-Seperated Values Files" defines a variant of CSV.
  *     Lines are closes with '\r\n', fields are seperated by comma (,) and spaces are part of the fields.
  *     The lines or fields can also contain commas or line breaks given they are put in quotes then.
  *     The upmost line is the header and contains descriptions of the field content e.g. "title,author,year"
@@ -104,14 +106,14 @@ public class CSVParser implements Constants
                 } else
                 {
                     // If the line doesn't meet the criteria, append a newline to the StringBuilder
-                    //TODO: check if this is needed!
+                    //TODO check if this is needed!
                     //StringBuilder.append(NEW_LINE);
                 }
             }
 
         } catch (IOException e)
         {
-            System.out.println(e.getMessage());
+            MyIO.print(e.getMessage(), ConsoleColor.RED_BRIGHT);
         }
 
         return rawData;

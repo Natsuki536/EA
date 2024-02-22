@@ -12,8 +12,8 @@ package model;
  */
 public class TimeData
 {
-    long yearOfPlanting;
-    int standingTime;
+    private long yearOfPlanting;
+    private int standingTime;
 
     //Constructor
     public TimeData (long yearOfPlanting, int standingTime)

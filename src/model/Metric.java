@@ -1,5 +1,6 @@
 package model;
 
+
 /**
  * <h1>Metric</h1>
  * <p>
@@ -16,6 +17,7 @@ public class Metric
     private double trunkCircumference;//in centimeter
     private double height; //in meter
 
+
     //Constructor
     public Metric (double treetopDiameter, double trunkCircumference, double height)
     {
@@ -23,6 +25,7 @@ public class Metric
         this.trunkCircumference = trunkCircumference;
         this.height = height;
     }
+
 
     //Getter
     public double getTreetopDiameter ()
@@ -41,6 +44,7 @@ public class Metric
     {
         return trunkCircumference;
     }
+
 
     //setter
     public void setTreetopDiameter (double treetopDiameter)

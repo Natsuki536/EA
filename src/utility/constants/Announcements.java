@@ -25,7 +25,7 @@ public interface Announcements
     String ANNOUNCEMENT_DELETE_LINES = "Invalid data records will now be deleted... ->";
     String ANNOUNCEMENT_LINES_DELETED = "The invalid data was deleted in %dms. %d data records were deleted.";
     String ANNOUNCEMENT_ADJUST_DATA = "Data records will now be adjusted... ->";
-    String ANNOUNCEMENT_TREES_CORRECTED = "The invalid data was corrected in %dms. The %d data records have been corrected.";
+    String ANNOUNCEMENT_TREES_CORRECTED = "The invalid data was corrected in %dms with %d data records being corrected.";
     String ANNOUNCEMENT_OPEN_MENU = "The menu will now be opened...  -> ";
     int ERROR_NEGATIVE_ONE = -1;
     String ERROR_COUNT = "There have been this number of errors: ";

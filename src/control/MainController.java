@@ -10,6 +10,7 @@ import view.MyIO;
 import java.util.InputMismatchException;
 
 import static control.IOController.*;
+import static utility.constants.MenuConstants.USER_PROMPT;
 import static view.MyIO.print;
 
 
@@ -108,9 +109,6 @@ public class MainController implements Constants, Announcements, DataIndices
     }
 
 
-    //TODO COMMENTS
-
-
     /**
      * @author Hannah Wollenweber
      * This method checks a user's input and either terminates the programm or calls further methods entering the core programm
@@ -124,6 +122,8 @@ public class MainController implements Constants, Announcements, DataIndices
      */
     public static void printMenu (String[] arguments)
     {
+        //print query to type in choice
+        print(USER_PROMPT, ConsoleColor.YELLOW_BRIGHT);
         try
         {
             switch (MyIO.getUserInput())
@@ -134,8 +134,9 @@ public class MainController implements Constants, Announcements, DataIndices
                 case "y", "Y":
                     IOController.openMenu(correctInvalidData(deleteInvalidTrees(parseDataToTreeObject(readDataFromTreeCSV()), arguments), arguments));
                     break;
+                //given the input doesn't match the cases, an exception is thrown, the Programm terminates and an error message is displayed
                 default:
-                    throw new IllegalArgumentException (ERROR_INVALID_USER_INPUT);
+                    throw new IllegalArgumentException(ERROR_INVALID_USER_INPUT);
             }
         } catch (InputMismatchException e)
         {
@@ -145,4 +146,5 @@ public class MainController implements Constants, Announcements, DataIndices
         }
 
     }
+
 }

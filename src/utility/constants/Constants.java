@@ -15,7 +15,7 @@ package utility.constants;
 public interface Constants
 {
     //Constants for stopwatch
-    long CONVERSION_NANO_TO_MILLI = 1_000_000l;
+    long CONVERSION_NANO_TO_MILLI = 1_000_000L;
 
     //Constants for replacing empty strings & strings with space
     String EMPTY_STRING = "";
@@ -53,27 +53,29 @@ public interface Constants
     String ZERO_STRING = "0";
 
     //Strings for grouping trees
-    String GROUP_BY_GENUS = "Genus: ";
-    String GROUP_BY_SPECIES = "Species: ";
-    String NEIGHBOURHOOD = "Neighbourhood: ";
-    String SPECIES = ", with the following number of Species: ";
+    String GROUP_BY_GENUS = "genus";
+    String GROUP_BY_SPECIES = "species";
+    String NEIGHBOURHOOD = "neighbourhood";
+    String SPECIES = ", with the following number of species: ";
     String HEIGHT_OF_TALLEST_TREE = ", with the height of tallest tree being: ";
     String NUMBER_OF_TREES = ", with the following number of trees: ";
-    String LARGEST_CIRCUMFERENCE = "The tree with the largest trunk circumference has the following values:";
-    String LARGEST_CROWN = "The tree with the largest crown diameter has the following values:";
-    String OLDEST_TREE = "The oldest tree has the following values:";
+    String LARGEST_CIRCUMFERENCE = "The following tree has the largest trunk circumference:";
+    String LARGEST_CROWN = "The tree following tree has the largest crown diameter:";
+    String OLDEST_TREE = "The following tree is the oldest:";
     String TREE = "Tree: ";
     String ID = "ID: ";
     String TREETOP = "Treetop diameter: ";
     String TRUNK = "Trunk circumference: ";
     String STANDINGTIME = "Standing time: ";
-    String AVERAGE_HEIGHT = ", Average height: ";
-    String AVERAGE_CIRCUMFERENCE = ", Average circumference: ";
-    String BOUND_CARBON = " has bound the following amount of carbon [in t]:";
+    String AVERAGE_HEIGHT = "The genus %s has the greatest average height, with the average being %f";
+    String AVERAGE_CIRCUMFERENCE = "The genus %s has the greatest average circumference, with the average being %f";
     String BERLIN_BOUND_CARBON = "Berlin has bound the following amount of carbon: ";
-    String NUMBER_GENERA = "There are the following number of genera: ";
-    String NUMBER_SPECIES = "There are the following number of species: ";
-
+    String NUMBER_GENERA = "There is the following number of genera: ";
+    String NUMBER_SPECIES = "There is the following number of species: ";
+    String NEIGHBOURHOOD_WITH_MOST_SPECIES = " The neighbourhood with the most species is: ";
+    String NEIGHBOURHOOD_WITH_TALLEST_TREE = " The neighbourhood with the tallest tree is: ";
+    String GROUPING_WITH_MOST_TREES = "The %s with the most trees is: %s, with the following number of trees: %d.";
+    String GROUPING_WITH_MOST_BOUND_CARBON = "The %s with the most bound carbon is: %s, with the following amount of carbon bound [in t]: %d.";
 
 
     //Constants for correcting
@@ -81,7 +83,7 @@ public interface Constants
     int YEAR_OF_DATASET = 2023;
 
 
-    //Constants for seperating foliage habit
+    //Constants for separating foliage habit
     String CONIFEROUS = "coniferous";
     String DECIDUOUS = "deciduous";
     int MIN_HEIGHT_CARBON = 6;

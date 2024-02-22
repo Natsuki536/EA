@@ -1,15 +1,11 @@
 package control;
 
 
+import model.Tree;
 import view.ConsoleColor;
 import view.MyIO;
 import utility.constants.Announcements;
 import utility.constants.Constants;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.Scanner;
 
 
 /**

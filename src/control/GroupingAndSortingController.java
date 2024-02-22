@@ -2,6 +2,11 @@ package control;
 
 
 import model.Tree;
+import utility.comparators.TreeStandingTimeComparator;
+import utility.comparators.TreeHeightComparator;
+import utility.comparators.TreeTrunkCircumferenceComparator;
+import utility.comparators.TreeCrownDiameterComparator;
+import view.ConsoleColor;
 import view.MyIO;
 import utility.constants.Constants;
 
@@ -45,6 +50,7 @@ public class GroupingAndSortingController implements Constants
         {
             //The grouping is specified
             String grouping = getter.apply(tree).toString();
+
             //the tree is sorted into the Hashmap
             addToMap(tree, groupedMap, grouping);
         }
@@ -67,7 +73,7 @@ public class GroupingAndSortingController implements Constants
         for (Tree tree : treeArrayList)
         {
             //the two groupings are being specified
-            String neighbourhood = tree.getAddress().getNeighbourhood();
+            String neighbourhood = tree.getSite().getNeighbourhood();
             String species = tree.getBotanic().getTreeSpecies();
 
             //The tree is added to the correct ArrayList based on the neighbourhood and species
@@ -152,7 +158,7 @@ public class GroupingAndSortingController implements Constants
             }
         }
         //print out the results
-        MyIO.print(NEIGHBOURHOOD + neighbourhoodWithMostSpecies + SPECIES + largestNumberOfSpecies);
+        MyIO.print(NEIGHBOURHOOD_WITH_MOST_SPECIES + neighbourhoodWithMostSpecies + SPECIES + largestNumberOfSpecies, ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -166,7 +172,7 @@ public class GroupingAndSortingController implements Constants
     public static void findNeighbourhoodWithTallestTree (Map<String, ArrayList<Tree>> neighbourhoodMap)
     {
         //set initial value for neighbourhood with the highest tree
-        String neighbourhoodWIthTallestTree = NEIGHBOURHOOD;
+        String neighbourhoodWithTallestTree = NEIGHBOURHOOD;
         double heightOfTallestTree = ZERO_DOUBLE;
 
         //iterate through Hashmap and look for highest tree in each neighbourhood
@@ -177,17 +183,17 @@ public class GroupingAndSortingController implements Constants
             ArrayList<Tree> treesInNeighbourhood = entry.getValue();
 
             //find the highest tree in given treesInNeighbourhood
-            double tallestTreeInNeighbourhood = findTallestTree(treesInNeighbourhood);
+            Tree tallestTreeInNeighbourhood = findTallestTree(treesInNeighbourhood);
 
             //replace initial values if current values are greater
-            if (tallestTreeInNeighbourhood > heightOfTallestTree)
+            if (tallestTreeInNeighbourhood.getHeight() > heightOfTallestTree)
             {
-                heightOfTallestTree = tallestTreeInNeighbourhood;
-                neighbourhoodWIthTallestTree = neighbourhood;
+                heightOfTallestTree = tallestTreeInNeighbourhood.getHeight();
+                neighbourhoodWithTallestTree = neighbourhood;
             }
         }
         //print out the results
-        MyIO.print(NEIGHBOURHOOD + neighbourhoodWIthTallestTree + STRING_WITH_SPACE + HEIGHT_OF_TALLEST_TREE + heightOfTallestTree);
+        MyIO.print(NEIGHBOURHOOD_WITH_TALLEST_TREE + neighbourhoodWithTallestTree + STRING_WITH_SPACE + HEIGHT_OF_TALLEST_TREE + heightOfTallestTree, ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -199,20 +205,21 @@ public class GroupingAndSortingController implements Constants
      * @param neighbourhood ArrayList that represents all trees in a certain neighbourhood
      * @return double tallestTree
      */
-    private static double findTallestTree (ArrayList<Tree> neighbourhood)
+    private static Tree findTallestTree (ArrayList<Tree> neighbourhood)
     {
         //initial value for height of the highest tree is set
-        double tallestTree = ZERO_DOUBLE;
+        Tree tallestTree = neighbourhood.get(ZERO);
         //the neighbourhood ArrayList is iterated through
-        for (Tree tree : neighbourhood)
+        for (int i = ONE; i < neighbourhood.size(); i++)
         {
-            //get height of current tree
-            double heightOfTree = tree.getHeight();
+            Tree tree = neighbourhood.get(i);
 
+            TreeHeightComparator treeHeightComparator = new TreeHeightComparator();
+            int compareResult = treeHeightComparator.compare(tree, tallestTree);
             //replace initial value if current value is greater
-            if (heightOfTree > tallestTree)
+            if (compareResult == ONE)
             {
-                tallestTree = heightOfTree;
+                tallestTree = tree;
             }
         }
         //return height of the highest tree
@@ -248,7 +255,7 @@ public class GroupingAndSortingController implements Constants
                 group = currentGroup;
             }
         }
-        MyIO.print(grouping + group + NUMBER_OF_TREES + numberOfTrees);
+        MyIO.print(String.format(GROUPING_WITH_MOST_TREES, grouping, group, numberOfTrees), ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -264,16 +271,16 @@ public class GroupingAndSortingController implements Constants
     public static Tree findSuperlative (ArrayList<Tree> treeArrayList, ToDoubleFunction<Tree> getter)
     {
         //set initial values for the comparison
-        double treeTop = ZERO_DOUBLE;
+        double maximum = ZERO_DOUBLE;
         Tree superlativeTree = null;
 
         //iterate through the ArrayList
         for (Tree tree : treeArrayList)
         {
             //given the current tree is greater than the initial value, it is set as the object to compare to
-            if (getter.applyAsDouble(tree) > treeTop)
+            if (getter.applyAsDouble(tree) > maximum)
             {
-                treeTop = getter.applyAsDouble(tree);
+                maximum = getter.applyAsDouble(tree);
                 superlativeTree = tree;
             }
         }
@@ -291,12 +298,7 @@ public class GroupingAndSortingController implements Constants
      */
     public static void printSuperlativeTree (Tree tree)
     {
-        MyIO.print(ID + tree.getId());
-        MyIO.print(GROUP_BY_GENUS + tree.getBotanic().getTreeGenus());
-        MyIO.print(NEIGHBOURHOOD + tree.getAddress().getNeighbourhood());
-        MyIO.print(STANDINGTIME + tree.getTreeStandingTime());
-        MyIO.print(TREETOP + tree.getTopDiameter());
-        MyIO.print(TRUNK + tree.getTrunkCircumference());
+        MyIO.print(tree.toString(), ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -337,23 +339,23 @@ public class GroupingAndSortingController implements Constants
     {
         //set initial values
         double maxAverage = ZERO_DOUBLE;
-        String neighbourhood = NEIGHBOURHOOD;
+        String genus = GROUP_BY_GENUS;
 
         //iterate through Hashmap
         for (Map.Entry<String, ArrayList<Tree>> entry : treesByGenus.entrySet())
         {
             //get values of current key
             double currentAverage = calculateAverage(entry.getValue(), Tree::getHeight);
-            String currentNeighbourhood = entry.getKey();
+            String currentGenus = entry.getKey();
 
             //find maximum
             if (currentAverage > maxAverage)
             {
                 maxAverage = currentAverage;
-                neighbourhood = currentNeighbourhood;
+                genus = currentGenus;
             }
         }
-        MyIO.print(GROUP_BY_GENUS + neighbourhood + AVERAGE_HEIGHT + maxAverage);
+        MyIO.print(String.format(AVERAGE_HEIGHT, genus, maxAverage), ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -368,22 +370,22 @@ public class GroupingAndSortingController implements Constants
     {
         //set initial values
         double maxAverage = ZERO_DOUBLE;
-        String neighbourhood = NEIGHBOURHOOD;
+        String genus = GROUP_BY_GENUS;
 
         //iterate through Hashmap
         for (Map.Entry<String, ArrayList<Tree>> entry : treesByGenus.entrySet())
         {
             //get values of current key
             double currentAverage = calculateAverage(entry.getValue(), Tree::getTrunkCircumference);
-            String currentNeighbourhood = entry.getKey();
+            String currentGenus = entry.getKey();
             //find maximum
             if (currentAverage > maxAverage)
             {
                 maxAverage = currentAverage;
-                neighbourhood = currentNeighbourhood;
+                genus = currentGenus;
             }
         }
-        MyIO.print(GROUP_BY_GENUS + neighbourhood + AVERAGE_CIRCUMFERENCE + maxAverage);
+        MyIO.print(String.format(AVERAGE_CIRCUMFERENCE, genus, maxAverage), ConsoleColor.GREEN_BRIGHT);
     }
 
 
@@ -429,6 +431,6 @@ public class GroupingAndSortingController implements Constants
                 group = currentGroup;
             }
         }
-        MyIO.print(grouping + group + BOUND_CARBON + mostCarbonBound);
+        MyIO.print(String.format(GROUPING_WITH_MOST_BOUND_CARBON, grouping, group, mostCarbonBound), ConsoleColor.GREEN_BRIGHT);
     }
 }

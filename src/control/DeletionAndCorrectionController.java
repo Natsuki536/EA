@@ -5,7 +5,7 @@ import model.Tree;
 import utility.constants.DataIndices;
 import view.MyIO;
 import utility.constants.Constants;
-import utility.ADT.Pair;
+import utility.adt.Pair;
 
 import java.util.ArrayList;
 import java.util.function.ToDoubleFunction;
@@ -54,7 +54,6 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
             long yearOfPlanting = tree.getYearOfPlanting();
             String treeGenus = tree.getGenus();
 
-            //TODO: Put all ifs in extra method with boolean as return value!!!
             if (treetopDiameter == ZERO && trunkCircumference == ZERO && height == ZERO && standingTime == ZERO)
             {
                 addIndex(indicesToDelete, treeArrayList, tree);
@@ -547,7 +546,17 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
     }
 
 
-    //TODO ADD COMMENTS
+    /**
+     * @author Hannah Wollenweber
+     * This method fetches the desired argument out of the args STringArray
+     *
+     * @precondition arguments have been passed
+     * @postcondition the correct argument is returned
+     *
+     * @param arguments arguments passed in command line
+     * @param index index of desired argument
+     * @return int value of argument
+     */
     private static int getArgument (String[] arguments, byte index)
     {
         return Integer.parseInt(arguments[index]);

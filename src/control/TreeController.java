@@ -2,6 +2,7 @@ package control;
 
 
 import model.*;
+import view.ConsoleColor;
 import view.MyIO;
 import utility.constants.Constants;
 import utility.constants.DataIndices;
@@ -86,7 +87,7 @@ public abstract class TreeController implements Constants, DataIndices
         {
             //print information that might help with debugging
             MyIO.print(rawData[DataIndices.INDEX_ID]);
-            MyIO.printLine(e.getMessage());
+            MyIO.print(e.getMessage(), ConsoleColor.RED_BRIGHT);
             return null;
         }
     }
@@ -120,7 +121,7 @@ public abstract class TreeController implements Constants, DataIndices
         {
             //print information that might help with debugging
             MyIO.print(dataLine[DataIndices.INDEX_ID]);
-            MyIO.printLine(e.getMessage());
+            MyIO.print(e.getMessage(), ConsoleColor.RED_BRIGHT);
         }
     }
 }
