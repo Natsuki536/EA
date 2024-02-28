@@ -5,6 +5,7 @@ package utility;
  * <h1>Carbon Data Lookup Tables</h1>
  * <p>
  *     This interfaces stores the lookup tables for four different tree genera: spruce, pine, oak and beech
+ *     The columns store the trunk diameter starting at 7cm, whereas the rows represent the tree height starting at 6 meters.
  * </p>
  *
  * @author Hannah Wollenweber
@@ -13,7 +14,8 @@ package utility;
  */
 public interface TreeCarbonData
 {
-    int[][] spruceCarbonByHeightAndCircumference = new int[][]{
+    int[][] spruceCarbonByHeightAndDiameter
+            = new int[][]{
             {30, 30, 30, 60, 60, 60, 60, 60, 100, 100, 100, 160},
             {30, 30, 30, 60, 60, 60, 60, 100, 100, 100, 160, 160},
             {30, 30, 30, 60, 60, 60, 100, 100, 100, 160, 160, 160},
@@ -53,7 +55,8 @@ public interface TreeCarbonData
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3000, 3000, 3000, 3000, 3000, 4250, 4250, 4250, 4250, 4250, 4250, 4250, 4250}
     };
 
-    int[][] pineCarbonByHeightAndCircumference = new int[][]{
+    int[][] pineCarbonByHeightAndDiameter
+            = new int[][]{
             {30, 30, 30, 60, 60, 60, 60, 100, 100, 100, 160},
             {30, 30, 30, 60, 60, 60, 100, 100, 100, 160, 160},
             {30, 30, 60, 60, 60, 60, 100, 100, 100, 160, 160, 160},
@@ -93,7 +96,7 @@ public interface TreeCarbonData
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3600, 3600, 3600, 4950, 4950, 4950, 4950, 4950, 4950, 4950, 4950, 4950},
     };
 
-    int[][] beechCarbonByHeightAndCircumference = new int[][]{
+    int[][] beechCarbonByHeightAndDiameter = new int[][]{
             {30, 30, 30, 60, 60, 60, 60, 100, 100, 100, 160},
             {30, 30, 30, 60, 60, 60, 60, 100, 100, 160, 160},
             {30, 30, 30, 60, 60, 60, 100, 100, 100, 160, 160},
@@ -133,7 +136,8 @@ public interface TreeCarbonData
             {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5000, 5000, 5000, 5000, 5000, 7000, 7000, 7000, 7000, 7000, 7000, 7000, 7000}
     };
 
-    int[][] oakCarbonByHeightAndCircumference = new int[][]{
+    int[][] oakCarbonByHeightAndDiameter
+            = new int[][]{
             {30, 30, 30, 60, 60, 60},
             {30, 30, 60, 60, 60, 60, 100, 100, 160, 160, 160},
             {30, 30, 60, 60, 60, 100, 100, 100, 160, 160, 160, 300, 300, 300, 300, 300, 300, 300},

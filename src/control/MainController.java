@@ -56,7 +56,7 @@ public class MainController implements Constants, Announcements, DataIndices
      */
     private static void checkIfEnoughArguments (int numberOfArgs)
     {
-        if (numberOfArgs == ZERO)
+        if (numberOfArgs <= ZERO || numberOfArgs < NUMBER_OF_ARGS)
         {
             print(ERROR_NO_ARGUMENT_IN_COMMAND_LINE, ConsoleColor.RED);
             System.exit(ZERO);
@@ -75,7 +75,7 @@ public class MainController implements Constants, Announcements, DataIndices
      */
     private static void checkIfTooManyArguments (int numberOfArgs)
     {
-        if (numberOfArgs > MAX_NUMBER_OF_ARGS)
+        if (numberOfArgs > NUMBER_OF_ARGS)
         {
             print(ERROR_TOO_MANY_ARGUMENTs_IN_COMMAND_LINE, ConsoleColor.RED);
             System.exit(ZERO);
@@ -146,5 +146,4 @@ public class MainController implements Constants, Announcements, DataIndices
         }
 
     }
-
 }

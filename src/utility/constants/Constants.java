@@ -26,7 +26,7 @@ public interface Constants
     int BOUND_RIGHT = 12;
 
     //Constants for CSV-Reader and counting method
-    String FILE_PATH = "./src/resources/Baumkataster_Berlin_orginal.csv";
+    String FILE_PATH = "./src/resources/Baumkataster_Berlin_test_correction.csv";
     String DATA_CSV_DELIMITER = ";(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)";
     int LIMIT_FOR_SPLITTING = -1;
     int SEMICOLONS_PER_LINE = 11;
@@ -48,7 +48,7 @@ public interface Constants
     Double MAX_TREETOP_DIAMETER = 25d;
     Double MIN_TREETOP_DIAMETER = 0.0;
     Double CORRECTION_FOR_TREETOP_DIAMETER = 5d;
-    Double CONVERSION_CENTI_TO_METER = 100d;
+    Double CONVERSION_CENTI_TO_METER = 100D;
     String UNBEKANNT = "UNBEKANNT";
     String ZERO_STRING = "0";
 
@@ -80,22 +80,24 @@ public interface Constants
 
     //Constants for correcting
     int ONE = 1;
+    int TWO = 2;
     int YEAR_OF_DATASET = 2023;
+    long ZERO_LONG = 0L;
 
 
     //Constants for separating foliage habit
     String CONIFEROUS = "coniferous";
     String DECIDUOUS = "deciduous";
     int MIN_HEIGHT_CARBON = 6;
-    int MIN_CIRCUMFERENCE = 7;
+    int MIN_DIAMETER = 7;
     int MAX_HEIGHT_CARBON = 42;
-    int MAX_CIRCUMFERENCE = 60;
+    int MAX_DIAMETER = 60;
     int MAX_INDEX_HEIGHT = 36;
-    int MAX_INDEX_CIRCUMFERENCE = 53;
+    int MAX_INDEX_DIAMETER = 53;
     int NEGATIVE_ONE = -1;
     int HEIGHT_INDEX_CORRECTION = -6;
-    int CIRCUMFERENCE_INDEX_CORRECTION = -7;
+    int DIAMETER_INDEX_CORRECTION = -7;
 
     //Constants for Main Controller
-    int MAX_NUMBER_OF_ARGS = 4;
+    int NUMBER_OF_ARGS = 4;
 }

@@ -18,4 +18,5 @@ public interface ToStringConstants
     String BRACKET_OPEN = "[";
     String BRACKET_CLOSE = "]";
     String SEMICOLON = "; ";
+    String NEW_LINE = "\n";
 }

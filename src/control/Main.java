@@ -1,7 +1,6 @@
 package control;
 
 
-import model.Tree;
 import view.ConsoleColor;
 import view.MyIO;
 import utility.constants.Announcements;

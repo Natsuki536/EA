@@ -33,7 +33,7 @@ public interface MenuConstants
 
 
     //String for query
-    String QUERY = "Please choose one of the following options by typing the according number or exit the meu with 'exit'";
+    String QUERY = "Please choose one of the following options by typing the according number or exit the menu with 'exit'";
     String CHOICES = "1 Which district has the most trees?\n" +
             "2 In which district is the tallest tree?\n" +
             "3 Which tree has the largest circumference?\n" +

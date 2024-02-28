@@ -40,9 +40,9 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
     public static ArrayList<Integer> createListOfIndicesToDelete (ArrayList<Tree> treeArrayList, String[] arguments)
     {
         int maxStandingTime = getArgument(arguments, INDEX_MAX_STANDING_TIME);
-        int maxHeight = getArgument(arguments, INDEX_MAX_HEIGHT);
-        int maxTrunkCircumference = getArgument(arguments, INDEX_MAX_TRUNK_CIRCUMFERENCE);
-        int maxTopDiameter = getArgument(arguments, INDEX_MAX_TOP_DIAMETER);
+        double maxHeight = getArgument(arguments, INDEX_MAX_HEIGHT);
+        double maxTrunkCircumference = getArgument(arguments, INDEX_MAX_TRUNK_CIRCUMFERENCE);
+        double maxTopDiameter = getArgument(arguments, INDEX_MAX_TOP_DIAMETER);
 
         ArrayList<Integer> indicesToDelete = new ArrayList<>();
         for (Tree tree : treeArrayList)
@@ -234,6 +234,7 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
         //iterate through the ArrayList of trees
         for (Tree tree : treeArrayList)
         {
+            MyIO.print(tree.toString());
             //get number of missing fields
             int numberOfFieldsToCorrect = countMissingArguments(tree);
 
@@ -248,6 +249,7 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
                 correctionCount++;
                 correctAttributes(numberOfFieldsToCorrect, tree, heightFactor, trunkCircumferencePerYearFactor, treeTopPerYearFactor, currentHeight, currentTrunkCircumference);
             }
+            MyIO.print(tree.toString());
         }
         return new Pair(correctionCount, treeArrayList);
     }
@@ -278,7 +280,7 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
         {
             counterOfMissingData++;
         }
-        if (tree.getTopDiameter() == ZERO_DOUBLE)
+        if (tree.getTrunkCircumference() == ZERO_DOUBLE)
         {
             counterOfMissingData++;
         }
@@ -305,7 +307,7 @@ public class DeletionAndCorrectionController implements Constants, DataIndices
     {
 
         //if only one field is zero, the algorithm to correct it is much simpler
-        if (numberOfFieldsToCorrect == ONE || (currentHeight == ZERO && currentTrunkCircumference == ZERO))
+        if (numberOfFieldsToCorrect == ONE || (currentHeight == ZERO && currentTrunkCircumference == ZERO && numberOfFieldsToCorrect == TWO))
         {
             correctHeightAndCircumference(tree, heightFactor, trunkCircumferencePerYearFactor, currentHeight, currentTrunkCircumference);
         } else

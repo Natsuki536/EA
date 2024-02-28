@@ -188,11 +188,14 @@ public class Tree implements Comparable<Tree>, ToStringConstants
     @Override
     public String toString ()
     {
-        return BRACKET_OPEN + OBJECT_ID + this.id + SEMICOLON + VICINITY + this.site.getVicinity() + SEMICOLON + GERMAN_SPECIES + this.botanic.getTreeSpecies() +
-            SEMICOLON + BOTANIC_SPECIES + this.botanic.getTreeSpeciesBotanical() + SEMICOLON + GERMAN_GENUS + this.botanic.getTreeSpecies() +
+        /*return BRACKET_OPEN + OBJECT_ID + this.id + SEMICOLON + VICINITY + this.site.getVicinity() + SEMICOLON + GERMAN_SPECIES + this.botanic.getTreeSpecies() +
+            SEMICOLON + BOTANIC_SPECIES + this.botanic.getTreeSpeciesBotanical() + SEMICOLON + NEW_LINE + GERMAN_GENUS + this.botanic.getTreeSpecies() +
             SEMICOLON + LATIN_GENUS + this.botanic.getTreeGenus() + SEMICOLON + YEAR_OF_PLANTING + this.timeData.getYearOfPlanting() +
-            SEMICOLON + STANDING_TIME + this.timeData.getStandingTime() + SEMICOLON + CROWN + this.metric.getTreetopDiameter() + SEMICOLON + TRUNK_CIRCUMFERENCE + this.metric.getTrunkCircumference() +
-            SEMICOLON + HEIGHT + this.getHeight() + SEMICOLON + DISTRICT + this.getNeighbourhood() + BRACKET_CLOSE;
+            SEMICOLON + STANDING_TIME + this.timeData.getStandingTime() + SEMICOLON + NEW_LINE + CROWN + this.metric.getTreetopDiameter() + SEMICOLON + TRUNK_CIRCUMFERENCE + this.metric.getTrunkCircumference() +
+            SEMICOLON + HEIGHT + this.getHeight() + SEMICOLON + DISTRICT + this.getNeighbourhood() + BRACKET_CLOSE;*/
+        return BRACKET_OPEN + SEMICOLON + this.id +SEMICOLON +  this.site.getVicinity() +SEMICOLON +  this.botanic.getTreeSpecies() +SEMICOLON +  this.botanic.getTreeSpeciesBotanical() +SEMICOLON +  this.botanic.getTreeSpecies() +SEMICOLON +
+                this.botanic.getTreeGenus() +SEMICOLON +  this.timeData.getYearOfPlanting() +SEMICOLON +  this.timeData.getStandingTime() + SEMICOLON +  this.metric.getTreetopDiameter() +SEMICOLON +  this.metric.getTrunkCircumference() +SEMICOLON +
+                this.getHeight() +SEMICOLON +  this.getNeighbourhood() + BRACKET_CLOSE;
     }
 
 

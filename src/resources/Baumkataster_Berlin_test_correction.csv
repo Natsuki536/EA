@@ -1,33 +1,22 @@
 OBJECTID;namenr;art_dtsch;art_bot;gattung_deutsch;gattung;pflanzjahr;standalter;kronedurch;stammumfg;baumhoehe;bezirk
-1;Weigandufer;Eingriffliger Weissdorn;Crataegus monogyna;WEIßDORN;CRATAEGUS;1989;34;;60;20;Neukölln
-2;Weigandufer;Hahnensporn-Weissdorn;Crataegus crus-galli;WEIßDORN;CRATAEGUS;1994;0;0;0;0;Neukölln
-3;Weigandufer;Pflaumenblättriger Weiss-Dorn;Crataegus prunifolia;WEIßDORN;CRATAEGUS;1987;36;0;0;0;Neukölln
-4;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;;1985;0;15;0;0;Neukölln
-5;"Roetepfuhl;Grünanlage";Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;112;0;Neukölln
-6;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;;1985;0;0;0;20;Neukölln
-7;"Roetepfuhl;Grünanlage";Gemeine Rosskastanie;Aesculus hippocastanumtest;ROSSKASTANIE;;1978;45;0;0;0;Neuköllntest
-8;Roetepfuhl""Grünanlage"";Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;;1980;43;0;117;0;Neukölln
-9;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;;1995;28;0;66;0;Neukölln
-10;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;98;0;Neukölln
-11;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;40;0;0;0;Neukölln
-12;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;2;0;0;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-14;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;50;0;0;0;Neukölln
-15;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;40;0;0;0;Neukölln
-621812;Schönholzer Straße;Zierkirsche 'Pink Perfection';Prunus serrulata 'Pink Perfection';;PRUNUS;2010;13;0.9;20;4.5;Mitte
-621827;Schönholzer Straße;Zierkirsche 'Pink Perfection';Prunus serrulata 'Pink Perfection';;PRUNUS;2011;12;2;24;5;Mitte
-621828;Chausseestraße Mitte;Holländische Linde;Tilia intermedia;LINDE;TILIA;1975;60;11;148;12;Mitte
-621829;Chausseestraße Mitte;Holländische Linde;Tilia intermedia;LINDE;TILIA;1980;43;10;120;14;Mitte
-621830;Chausseestraße Mitte;Holländische Linde;Tilia intermedia;LINDE;TILIA;1985;0;8;74;10;Mitte
-621831;Chausseestraße Mitte;Holländische Linde;Tilia intermedia;LINDE;TILIA;1990;33;6;75;10;Mitte
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
-13;Roetepfuhl-Grünanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;2;Neukölln
+1;Weigandufer;Eingriffliger Weissdorn;Crataegus monogyna;WEI§DORN;CRATAEGUS;1989;34;20;1000;20;Neukšlln
+2;Weigandufer;Hahnensporn-Weissdorn;Crataegus crus-galli;WEI§DORN;CRATAEGUS;200;0;0;0;0;Neukšlln
+3;Weigandufer;PflaumenblŠttriger Weiss-Dorn;Crataegus prunifolia;WEI§DORN;CRATAEGUS;1987;1100;0;0;0;Neukšlln
+4;Roetepfuhl-GrŸnanlage;;;;;1985;0;15;0;0;Neukšlln
+5;"Roetepfuhl;GrŸnanlage";Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;38;36;112;1000;Neukšlln
+6;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;20;Neukšlln
+7;"Roetepfuhl;GrŸnanlage";Gemeine Rosskastanie;Aesculus hippocastanumtest;ROSSKASTANIE;AESCULUS;1978;45;0;0;0;Neukšllntest
+8;Roetepfuhl""GrŸnanlage"";Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1980;43;0;117;0;Neukšlln
+9;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1995;28;0;66;0;Neukšlln
+10;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;98;0;Neukšlln
+11;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;40;0;0;0;Neukšlln
+12;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;2;0;0;Neukšlln
+13;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;0;0;0;10;Neukšlln
+14;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;50;0;0;0;Neukšlln
+15;Roetepfuhl-GrŸnanlage;Gemeine Rosskastanie;Aesculus hippocastanum;ROSSKASTANIE;AESCULUS;1985;38;0;0;25;Neukšlln
+621812;Schšnholzer Stra§e;Zierkirsche 'Pink Perfection';Prunus serrulata 'Pink Perfection';;PRUNUS;2010;13;0.9;20;4.5;Mitte
+621827;Schšnholzer Stra§e;Zierkirsche 'Pink Perfection';Prunus serrulata 'Pink Perfection';;PRUNUS;2011;12;2;24;5;Mitte
+621828;Chausseestra§e Mitte;HollŠndische Linde;Tilia intermedia;LINDE;TILIA;1975;60;11;148;12;Mitte
+621829;Chausseestra§e Mitte;HollŠndische Linde;Tilia intermedia;LINDE;TILIA;1980;43;10;120;14;Mitte
+621830;Chausseestra§e Mitte;HollŠndische Linde;Tilia intermedia;LINDE;TILIA;1985;0;8;74;10;Mitte
+621831;Chausseestra§e Mitte;HollŠndische Linde;Tilia intermedia;LINDE;TILIA;1990;33;6;75;10;Mitte

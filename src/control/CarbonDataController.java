@@ -40,13 +40,16 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
         int boundCarbon = ZERO;
         try
         {
+            //use acording lookuptable
             switch (foliageHabit)
             {
                 case (CONIFEROUS):
-                    boundCarbon = calculateBoundCarbon(tree, spruceCarbonByHeightAndCircumference);
+                    //use spruce to not over-calculate
+                    boundCarbon = calculateBoundCarbon(tree, spruceCarbonByHeightAndDiameter);
                     break;
                 case (DECIDUOUS):
-                    boundCarbon = calculateBoundCarbon(tree, oakCarbonByHeightAndCircumference);
+                    //use oak to not over-calculate
+                    boundCarbon = calculateBoundCarbon(tree, oakCarbonByHeightAndDiameter);
                     break;
             }
         } catch (InputMismatchException e)
@@ -69,6 +72,7 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
      */
     private static String checkFoliageHabit (Tree tree)
     {
+        //check whether given tree is coniferous (inside the acording list)
         boolean isConiferous = CONIFEROUS_GENERA.contains(tree.getGenus());
         if (isConiferous)
         {
@@ -92,26 +96,31 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
      * @return the bound carbon as int
      * @exception ArrayIndexOutOfBoundsException exception thrown
      */
+
     private static int calculateBoundCarbon (Tree tree, int[][] lookuptable)
     {
+        //get height and apply index correction since table starts at 6 meters with index zero
         int height = ((int) Math.round(tree.getHeight())) + HEIGHT_INDEX_CORRECTION;
-        int trunkCircumference = ((int) Math.round(tree.getTrunkCircumference())) + CIRCUMFERENCE_INDEX_CORRECTION;
+        //calculate trunk diameter by dividing the circumference by pi and apply index correction since start at 7cm
+        int trunkDiameter = ((int) Math.round(tree.getTrunkCircumference()/Math.PI)) + DIAMETER_INDEX_CORRECTION;
+        //declare size of second dimension Array
         int sizeSecondDimension;
 
-        //if height or trunk circumference
-        if (height < ZERO || trunkCircumference < ZERO)
+        //if height or trunk diameter
+        if (height < ZERO || trunkDiameter < ZERO)
         {
             return ZERO;
         }
-
+        //calculate the size of 2nd dimension Array
         sizeSecondDimension = calculateSecondDimensionSize(lookuptable, height);
 
-        //if the tree's height or the tree's trunk circumference exceed the table the max indices have to be used
-        if (height >= MAX_INDEX_HEIGHT || trunkCircumference >= MAX_INDEX_CIRCUMFERENCE)
+        //if the tree's height or the tree's trunk diameter exceed the table the max indices have to be used
+        if (height >= MAX_INDEX_HEIGHT || trunkDiameter >= MAX_INDEX_DIAMETER)
         {
             try
             {
-                return lookuptable[MAX_INDEX_HEIGHT][MAX_INDEX_CIRCUMFERENCE];
+                //return max value
+                return lookuptable[MAX_INDEX_HEIGHT][MAX_INDEX_DIAMETER];
             } catch (ArrayIndexOutOfBoundsException e)
             {
                 MyIO.print(e.getMessage());
@@ -121,13 +130,14 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
         {
             try
             {
-                //check that circumference doesn't exceed lookuptable
-                if (trunkCircumference < sizeSecondDimension)
+                //check that diameter doesn't exceed lookuptable
+                if (trunkDiameter < sizeSecondDimension)
                 {
-                    return lookuptable[height][trunkCircumference];
+                    //return value at indices
+                    return lookuptable[height][trunkDiameter];
                 } else
                 {
-                    //return maximum value possible for height if circumference does exceed
+                    //return maximum value possible for height if diameter does exceed
                     return lookuptable[height][sizeSecondDimension];
                 }
             } catch (ArrayIndexOutOfBoundsException e)
@@ -154,10 +164,12 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
      */
     private static int calculateSecondDimensionSize (int[][] lookuptable, int height)
     {
+        //check that height does not exceed max possible height for lookup table
         if (height < MAX_INDEX_HEIGHT)
         {
             try
             {
+                //return size of the 2nd dimension Array
                 return lookuptable[height].length + NEGATIVE_ONE;
             } catch (ArrayIndexOutOfBoundsException e)
             {
@@ -168,6 +180,7 @@ public class CarbonDataController implements TreesCategorized, Constants, Announ
         {
             try
             {
+                //return max size if height does exceed max height
                 return lookuptable[MAX_INDEX_HEIGHT].length + NEGATIVE_ONE;
             } catch (ArrayIndexOutOfBoundsException e)
             {
